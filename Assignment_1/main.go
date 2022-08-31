@@ -28,7 +28,7 @@ func findStudent(students []students, id int) {
 
 func main(){
 	var input int
-	fmt.Print("Please input ID student :", input)
+	fmt.Print("Please input ID student : ", input)
 	fmt.Scan(&input)
 
 	var studentsData = []students {
