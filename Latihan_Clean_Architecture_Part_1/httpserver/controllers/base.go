@@ -6,6 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func WriteJsonResponse(ctx *gin.Context, resp *views.Response) {
+func WriteJsonRespnse(ctx *gin.Context, resp *views.Response) {
 	ctx.JSON(resp.Status, resp)
 }

@@ -1,19 +1,16 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 	"sesi6-gin/httpserver/controllers/params"
 	"sesi6-gin/httpserver/services"
-	"strconv"
-
+	
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 )
 
 func CreateUser(ctx *gin.Context) {
 	var req params.UserCreateRequest
-
 	// step : (2) nge parsing data dari client
 	// dan dimasukin ke params
 	err := ctx.ShouldBindJSON(&req)
@@ -36,11 +33,10 @@ func CreateUser(ctx *gin.Context) {
 	response := services.CreateUser(&req)
 
 	// step : (9) kirim ke client
-	WriteJsonResponse(ctx, response)
+	WriteJsonRespnse(ctx, response)
 }
 
-func GetUsers(ctx *gin.Context) {
-	response := services.GetUsers()
-	WriteJsonResponse(ctx, response)
+func ReadUser(ctx *gin.Context) {
+	response := services.ReadUser()
+	WriteJsonRespnse(ctx, response)
 }
-

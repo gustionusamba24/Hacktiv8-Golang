@@ -5,3 +5,10 @@ type User struct {
 	Username string
 	Password string // hash
 }
+
+var SaveData []User
+
+func (s *User) SaveUser() []User {
+	SaveData = append(SaveData, *s)
+	return SaveData
+}
