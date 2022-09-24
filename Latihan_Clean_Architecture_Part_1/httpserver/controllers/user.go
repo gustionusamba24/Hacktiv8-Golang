@@ -33,10 +33,10 @@ func CreateUser(ctx *gin.Context) {
 	response := services.CreateUser(&req)
 
 	// step : (9) kirim ke client
-	WriteJsonRespnse(ctx, response)
+	WriteJsonResponse(ctx, response)
 }
 
-func ReadUser(ctx *gin.Context) {
-	response := services.ReadUser()
-	WriteJsonRespnse(ctx, response)
+func GetUser(ctx *gin.Context) {
+	response := services.GetUser()
+	WriteJsonResponse(ctx, response)
 }

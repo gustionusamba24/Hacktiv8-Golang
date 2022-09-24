@@ -33,9 +33,9 @@ func CreateUser(req *params.UserCreateRequest) *views.Response {
 	return v
 }
 
-func ReadUser() *views.Response {
+func GetUser() *views.Response {
 	data := models.SaveData
-	v := views.SuccessCreateResponse(data, "created success!")
+	v := views.SuccessCreateResponse(data, "successfully created!")
 
 	// step : (8) kembalikan views ke controller
 	return v

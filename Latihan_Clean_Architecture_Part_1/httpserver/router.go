@@ -30,7 +30,7 @@ func CreateRouter() *gin.Engine {
 	// step :(1) request masuk, request keluar
 	router.GET("/ping", controllers.HealthCheck)
 	router.POST("/users", controllers.CreateUser)
-	router.GET("/users", controllers.ReadUser)
+	router.GET("/users", controllers.GetUser)
 
 	return router
 }
