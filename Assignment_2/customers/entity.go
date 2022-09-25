@@ -2,7 +2,7 @@ package customers
 
 import "time"
 
-type Customers struct {
+type Customer struct {
 	ID        int
 	Customer_Name  string
 	CreatedAt time.Time
