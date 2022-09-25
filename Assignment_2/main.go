@@ -8,11 +8,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 	"gorm.io/driver/mysql"
-	"github.com/jinzhu/gorm"
 )
 
 func main(){
-	dsn := "user:@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:@tcp(127.0.0.1:3306)/orders_by?charset=utf8mb4&parseTime=True&loc=Local"
   	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {

@@ -19,8 +19,8 @@ func NewService(repository Repository) *service {
 func (s *service) Create(input OrderInput) (Order, error) {
 	createOrder := Order{}
 
-	createOrder.Customer_ID = input.Customer_id
-	createOrder.Item_code = input.Items_code
+	createOrder.Customer_ID = input.Customer_ID
+	createOrder.Item_Code = input.Items_Code
 	createOrder.Description = input.Description
 	createOrder.Quantity = input.Quantity
 
@@ -69,7 +69,7 @@ func (s *service) Update(inputID GetOrderByID, inputData OrderUpdate) (Order, er
 	order.Quantity = inputData.Quantity
 	order.Customer_ID = inputData.Customer_ID
 
-	updateOrder, err := s.repository.Update(order)
+	updateOrder, err := s.repository.UpdateOrder(order)
 	if err != nil {
 		return updateOrder, err
 	}
@@ -83,7 +83,7 @@ func (s *service) Delete(inputID int) (Order, error) {
 		return order, err
 	}
 
-	deleteOrder, err := s.repository.Delete(order)
+	deleteOrder, err := s.repository.DeleteOrder(order)
 	if err != nil {
 		return deleteOrder, err
 	}

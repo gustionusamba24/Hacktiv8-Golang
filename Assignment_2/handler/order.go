@@ -37,7 +37,7 @@ func (h *orderHandler) CreateOrder(c *gin.Context) {
 		return
 	}
 
-	response := helper.APIResponse("Success to create order", http.StatusOK, "success", orders.FormatOrder(newOrder))
+	response := helper.APIResponse("Success to create order", http.StatusOK, "success", orders.OrderFormat(newOrder))
 	c.JSON(http.StatusOK, response)
 }
 
@@ -52,7 +52,7 @@ func (h *orderHandler) GetOrders(c *gin.Context) {
 		return
 	}
 
-	response := helper.APIResponse("Orders", http.StatusOK, "success", orders.FormatOrders(order))
+	response := helper.APIResponse("Orders", http.StatusOK, "success", orders.OrdersFormat(order))
 	c.JSON(http.StatusOK, response)
 }
 
@@ -78,14 +78,14 @@ func (h *orderHandler) UpdateOrder(c *gin.Context) {
 		return
 	}
 
-	updatedOrder, err := h.service.UpdateOrder(inputID, inputData)
+	updatedOrder, err := h.service.Update(inputID, inputData)
 	if err != nil {
 		response := helper.APIResponse("Failed updating order", http.StatusBadRequest, "error", nil)
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
 
-	response := helper.APIResponse("Success updating order", http.StatusOK, "success", orders.FormatOrder(updatedOrder))
+	response := helper.APIResponse("Success updating order", http.StatusOK, "success", orders.OrderFormat(updatedOrder))
 	c.JSON(http.StatusOK, response)
 }
 
@@ -109,7 +109,7 @@ func (h *orderHandler) GetOrderByID(c *gin.Context) {
 		return
 	}
 
-	response := helper.APIResponse("Success getting order", http.StatusOK, "success", orders.FormatOrder(order))
+	response := helper.APIResponse("Success getting order", http.StatusOK, "success", orders.OrderFormat(order))
 	c.JSON(http.StatusOK, response)
 }
 
@@ -126,14 +126,14 @@ func (h *orderHandler) DeleteOrder(c *gin.Context) {
 		return
 	}
 
-	order, err := h.service.DeleteOrder(id)
+	order, err := h.service.Delete(id)
 	if err != nil {
 		response := helper.APIResponse("Failed deleting order", http.StatusBadRequest, "error", nil)
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
 
-	response := helper.APIResponse("Success deleting Order", http.StatusOK, "success", orders.FormatOrder(order))
+	response := helper.APIResponse("Success deleting Order", http.StatusOK, "success", orders.OrderFormat(order))
 	c.JSON(http.StatusOK, response)
 }
 

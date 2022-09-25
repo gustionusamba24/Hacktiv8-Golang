@@ -30,11 +30,11 @@ func (h *customerHandler) CreateCustomer(c *gin.Context) {
 
 	newCustomer, err := h.service.CreateCustomer(input)
 	if err != nil {
-		response := helper.APIResponse("Failed to create customer", http.StatusBadRequest, "error", nil)
+		response := helper.APIResponse("Failed creating customer", http.StatusBadRequest, "error", nil)
 		c.JSON(http.StatusBadRequest, response)
 		return
 	}
 
-	response := helper.APIResponse("Success to create customer", http.StatusOK, "success", customers.FormatCustomer(newCustomer))
+	response := helper.APIResponse("Success creating customer", http.StatusOK, "success", customers.CustomerFormat(newCustomer))
 	c.JSON(http.StatusOK, response)
 }
