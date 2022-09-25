@@ -6,10 +6,10 @@ type CustomerFormatter struct {
 }
 
 func CustomerFormat(customer Customer) CustomerFormatter {
-	customerFormatter := CustomerFormatter{}
+	customerFormat := CustomerFormatter{}
 
-	customerFormatter.ID = customer.ID
-	customerFormatter.Customer_Name = customer.Customer_Name
+	customerFormat.ID = customer.ID
+	customerFormat.Customer_Name = customer.Customer_Name
 
-	return customerFormatter
+	return customerFormat
 }
