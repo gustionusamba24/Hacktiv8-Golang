@@ -1,7 +1,7 @@
 package orders
 
 type OrderInput struct {
-	Customer_id int `json:"customer_id"`
+	Customer_ID int `json:"customer_id"`
 	Items_Code  string `json:"items_code"`
 	Description string `json:"description"`
 	Quantity    int    `json:"quantity"`

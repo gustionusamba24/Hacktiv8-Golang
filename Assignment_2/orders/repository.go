@@ -9,9 +9,9 @@ type Repository interface {
 	FindByID(ID int) (customers.Customer, error)
 	CreateOrder(order Order) (Order, error)
 	GetAllOrders() ([]Order, error)
-	Update(order Order) (Order, error)
+	UpdateOrder(order Order) (Order, error)
 	GetOrderByID(ID int) (Order, error)
-	Delete(order Order) (Order, error)
+	DeleteOrder(order Order) (Order, error)
 }
 
 type repository struct {
@@ -66,7 +66,7 @@ func (repository *repository) GetOrderByID(ID int) (Order, error) {
 
 }
 
-func (repository *repository) Update(order Order) (Order, error) {
+func (repository *repository) UpdateOrder(order Order) (Order, error) {
 
 	err := repository.db.Debug().Save(&order).Error
 	if err != nil {
@@ -75,7 +75,7 @@ func (repository *repository) Update(order Order) (Order, error) {
 	return order, nil
 }
 
-func (repository *repository) Delete(order Order) (Order, error) {
+func (repository *repository) DeleteOrder(order Order) (Order, error) {
 	err := repository.db.Delete(&order).Error
 	if err != nil {
 		return order, err
