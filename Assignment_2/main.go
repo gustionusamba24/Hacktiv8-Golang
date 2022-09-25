@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 	"gorm.io/driver/mysql"
+	"github.com/jinzhu/gorm"
 )
 
 func main(){
